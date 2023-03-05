@@ -1,3 +1,4 @@
+# Данный модуль предназначен для создания движка БД и локальной сессии
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
@@ -14,6 +15,9 @@ Base = declarative_base()
 
 
 def get_db():
+    """
+    Данная функция создает локальную сессию у БД и закрывает ее после обращения
+    """
     db_session_local = SessionLocal()
     try:
         yield db_session_local
